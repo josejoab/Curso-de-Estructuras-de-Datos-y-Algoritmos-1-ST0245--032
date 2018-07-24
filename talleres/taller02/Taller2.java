@@ -66,7 +66,12 @@ public class Taller2 {
 	*/
 
 	private static void combinationsAux(String prefix, String s) {  
-		//...
+	if(s.length()==0) System.out.println(prefix);
+        else{
+           combinationsAux(s.charAt(0)+ prefix, s.substring(1));
+           combinationsAux(prefix, s.substring(1));
+        }
+            
 	}
 
 }
