@@ -7,7 +7,8 @@ public class Taller5
           a[j] = j;
         }
         long start = System.currentTimeMillis();
-          suma(a);
+        System.out.println(suma(a));  
+        //suma(a);
         long fin = System.currentTimeMillis();       
         System.out.println(fin-start);
     }    
