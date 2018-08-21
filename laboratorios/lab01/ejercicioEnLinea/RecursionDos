@@ -1,0 +1,83 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package javaapplication33;
+
+/**
+ *
+ * @author manuelgutierrez
+ */
+public class RecursionDos {
+    public static boolean groupSum6(int start, int[] nums, int target) {
+        if(start >= nums.length){
+          return target==0;
+        }
+        if(nums[start] == 6){
+            return groupSum6(start+1,nums,target-nums[start]);
+          }
+        if(groupSum6(start+1,nums,target-nums[start])){
+          return true;
+        }
+        if(groupSum6(start+1,nums,target)){
+          return true;
+        }
+          return false;   
+      }
+    public boolean groupNoAdj(int start, int[] nums, int target) {
+        if(start >= nums.length){
+          return target==0;
+        }
+        if(groupNoAdj(start+2,nums,target-nums[start])){
+          return true;
+        }
+        if(groupNoAdj(start+1,nums,target)){
+          return true;
+        }
+        return false;
+    }
+    public boolean splitArray(int[] nums) {
+      int index = 0;
+      int suma1 = 0;
+      int suma2 = 0;
+      return auxArray(nums, index, suma1, suma2);
+    }
+
+    private boolean auxArray ( int[] nums, int index, int suma1, int suma2 ) {
+      if ( index >= nums.length ) {
+        return suma1 == suma2;
+      }
+
+      int value = nums[index];
+
+      return (auxArray(nums, index + 1, suma1 + value, suma2) || 
+        auxArray(nums, index + 1, suma1, suma2 + value));
+    }
+    public boolean groupSum5(int start, int[] nums, int target) {
+    if(start < nums.length){
+       if(start > 0){
+          if(nums[start - 1] % 5 == 0 && nums[start] == 1) return groupSum5(start + 1,nums,target); // T(n-1)
+        }
+       if(nums[start] % 5 == 0) return groupSum5(start+1,nums,target-nums[start]); // T(n-1)
+       else return groupSum5(start+1,nums,target) || groupSum5(start+1,nums,target-nums[start]); //2T(n-1)
+    }
+    if(target == 0) return true; // C_1 constante
+    return false; // C_2 constante
+    }
+    public boolean groupSumClump(int start, int[] nums, int target) {
+  
+        if( start>= nums.length){
+          return target == 0;
+        }
+        else if(start+1 < nums.length &&nums[start]==nums[start+1]){
+          return groupSumClump(start + 2, nums, target - (nums[start]+nums[start+1])) || 
+          groupSumClump(start + 2, nums, target);
+        }
+        else {
+          return groupSumClump(start + 1, nums, target - nums[start]) || 
+          groupSumClump(start + 1, nums, target);
+
+        }
+      }
+}
