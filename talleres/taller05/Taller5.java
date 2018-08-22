@@ -1,5 +1,43 @@
 public class Taller5
 {
+ 
+  public static void main(){
+     // punto 1 --------------------------------------------------------------------------------   
+        for(int i = 1000; i<=20000; i+=1000){
+            int [] a = new int [i];
+         for(int j=0; j<i; j++){
+             
+             a[j] = j;
+            }
+            
+         long start = System.currentTimeMillis();
+         System.out.println("arreglo "+i);  
+         burbuja(a);
+         long fin = System.currentTimeMillis();       
+         System.out.println(fin-start);
+            
+        }
+        
+    }
+    
+  static void burbuja(int arreglo[])
+    {
+       for(int i = 0; i < arreglo.length - 1; i++) //C_1 + C_2 * (n+1)
+        {
+           for(int j = 0; j < arreglo.length - 1; j++) // n*(C_3 + C_4 * (n+1))
+            {
+               if (arreglo[j] < arreglo[j + 1]) // C_5
+                {
+                    int tmp = arreglo[j+1]; // C_6
+                    arreglo[j+1] = arreglo[j]; //C_7
+                    arreglo[j] = tmp; //C_8
+                }
+            }
+        }
+     
+    }
+ // punto 2-------------------------------------------------------------------------
+ 
  public static void main(String[] args){
   for(int i = 10000000; i <= 20000000; i+=1000000){
      int[] a = new int[i];
@@ -21,25 +59,7 @@ public class Taller5
   return suma; //c5
  }
  
-  static void burbuja(int arreglo[])
-    {
-       for(int i = 0; i < arreglo.length - 1; i++) //C_1 + C_2 * (n+1)
-        {
-           for(int j = 0; j < arreglo.length - 1; j++) // n*(C_3 + C_4 * (n+1))
-            {
-               if (arreglo[j] < arreglo[j + 1]) // C_5 * (n-1)
-                {
-                    int tmp = arreglo[j+1]; // C_6 * (n-1)
-                    arreglo[j+1] = arreglo[j]; //C_7 *(n-1)
-                    arreglo[j] = tmp; //C_8 *(n-1)
-                }
-            }
-        }
-        for(int i = 0;i < arreglo.length; i++) // C_9 + C_10*(n+1)
-        {
-            System.out.print(arreglo[i]+"\n");
-        }
-    }
+ 
 }
 
 }
