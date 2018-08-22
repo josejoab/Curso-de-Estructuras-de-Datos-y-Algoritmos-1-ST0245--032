@@ -27,11 +27,11 @@ public class Taller5
         {
            for(int j = 0; j < arreglo.length - 1; j++) // n*(C_3 + C_4 * (n+1))
             {
-               if (arreglo[j] < arreglo[j + 1]) // C_5
+               if (arreglo[j] < arreglo[j + 1]) // C_5 * (n-1)
                 {
-                    int tmp = arreglo[j+1]; // C_6
-                    arreglo[j+1] = arreglo[j]; //C_7
-                    arreglo[j] = tmp; //C_8
+                    int tmp = arreglo[j+1]; // C_6 * (n-1)
+                    arreglo[j+1] = arreglo[j]; //C_7 *(n-1)
+                    arreglo[j] = tmp; //C_8 *(n-1)
                 }
             }
         }
