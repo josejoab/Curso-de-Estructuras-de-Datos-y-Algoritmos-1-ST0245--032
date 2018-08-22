@@ -20,5 +20,26 @@ public class Taller5
     suma += a[i];  //sum c4, i=0 to n-1
   return suma; //c5
  }
+ 
+  static void burbuja(int arreglo[])
+    {
+       for(int i = 0; i < arreglo.length - 1; i++) //C_1 + C_2 * (n+1)
+        {
+           for(int j = 0; j < arreglo.length - 1; j++) // n*(C_3 + C_4 * (n+1))
+            {
+               if (arreglo[j] < arreglo[j + 1]) // C_5
+                {
+                    int tmp = arreglo[j+1]; // C_6
+                    arreglo[j+1] = arreglo[j]; //C_7
+                    arreglo[j] = tmp; //C_8
+                }
+            }
+        }
+        for(int i = 0;i < arreglo.length; i++) // C_9 + C_10*(n+1)
+        {
+            System.out.print(arreglo[i]+"\n");
+        }
+    }
+}
 
 }
