@@ -1,4 +1,3 @@
- 
 import java.util.Arrays;
 
 /**
@@ -27,8 +26,6 @@ public class MiArrayList<CualquierCosa> {
         elements = new Object[DEFAULT_CAPACITY];
         size = 0;
     }     
-
-    
     /**
     * Tiene la intención de retornar la longitud del objeto
     * @return longitud del objeto
@@ -39,7 +36,6 @@ public class MiArrayList<CualquierCosa> {
         return size;
         
     }   
-    
     /** 
     * @param e el elemento a guardar
     * Agrega un elemento e a la última posición de la lista
@@ -49,7 +45,7 @@ public class MiArrayList<CualquierCosa> {
         if(size < elements.length){
         elements[size] = e;
         size++;
-       }
+         }
        else {
          Object[] elements1  = new Object[size()];
          for(int i=0; i< elements.length;i++){
@@ -59,10 +55,10 @@ public class MiArrayList<CualquierCosa> {
          for(int i = 0; i < elements1.length; i++){
              elements[i] = elements1[i];
         }
-        size = elements1.length;
+        size ++;
         elements[size] = e;
     }
-        
+      
     }    
     
     
@@ -72,24 +68,42 @@ public class MiArrayList<CualquierCosa> {
     *
     */
     public CualquierCosa get(int i) {
+        
         if (i>=0 && i<size){
            return (CualquierCosa) elements[i];
         }
-        else{
-            return errormaquinola;
-        }
-        
+        else {
+           return null;
     }
-    
-    
+    }
+
     /**
     * @param index es la posicion en la cual se va agregar el elemento
     * @param e el elemento a guardar
     * Agrega un elemento e en la posición index de la lista
     *
     */
-    public void add(int index, int e) {
-        //...
+    public void add(int index, CualquierCosa e) {
+        if(index > size){
+          add(e);
+        }
+        else if(size == elements.length){  //C_1
+           Object[] elements1  = new Object[size()]; //C_2
+           for(int i=0; i< elements.length;i++){ // n 
+             elements1[i] = elements[i]; //n-1
+           }
+           Object [] elements = new Object[size()*2]; //C_3 + C_4
+           for(int i = 0; i < elements1.length; i++){ // n
+              elements[i] = elements1[i]; // n-1
+           }
+           size ++; //C_5
+           correrArreglo( index);
+           elements[index]=e;
+            }
+        else if(index >= 0 && index < size){
+          correrArreglo(index);
+          elements[index]=e;
+        }
     } 
 
     /**
@@ -99,6 +113,20 @@ public class MiArrayList<CualquierCosa> {
     *
     */
     public void del(int index){
-        //...
+     elements[index] = null;
+     BorrarArreglo(index);
+    }
+    
+    private void correrArreglo( int index){
+        for(int i = size;i> index;i--){
+            elements[i]= elements[i-1];
+            }
+            
+        }
+    private void BorrarArreglo(int index){
+     for(int i = index; i <= size; i++){
+         elements[i] = elements[i+1];
+        }
+      elements[size] = null;
     }
 }
