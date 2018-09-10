@@ -99,27 +99,24 @@ public class CodingBat {
 
         return count;
     }
-    public int[] fix45(int[] nums) {
-        int i = 0;
-        int j = 0;
-
-        while(j < nums.length && nums[j] != 5) // n
-            j++;
-
-        while(i < nums.length) { // m
-            if(nums[i] == 4) {
-                int auxiliar = nums[i+1];
-                nums[i+1] = nums[j];
-                nums[j] = auxiliar;
-
-                while((j < nums.length && nums[j] != 5) || j == i+1)
-                    j++;
-            }
-            i++;
-        }
-
-        return nums;
+ public int[] fix45(int[] nums) {
+  int t1=0,t2=0;
+  
+  for(int i=0;i<nums.length;i++){
+    
+    for(int j=0;j<nums.length;j++){
+      if(nums[i]==5&&nums[j]==4){
+        t1=nums[i];
+        t2=nums[j+1];
+        nums[i]=t2;
+        nums[j+1]=t1;
+      }
     }
+  }
+  
+  return nums;
+}
+
     public int[] seriesUp(int n) { 
         int[] arreglo = new int[n*(n+1)/2];
         int auxiliar = 0;
