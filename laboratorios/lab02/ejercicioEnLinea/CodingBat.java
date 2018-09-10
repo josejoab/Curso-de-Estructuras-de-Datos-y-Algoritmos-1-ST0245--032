@@ -19,13 +19,13 @@ public class CodingBat {
         }
         return contador;
 }
-    public int bigDiff(int[] nums) {
+      public int bigDiff(int[] nums) {
       int mayor = 0;
       int menor = 0;
-      for(int i = 0; i < nums.length; i++){ // n + 1
-        mayor = nums[i];
-        menor = nums[i];
-        for(int j = 0; j < nums.length; j++){ // n * m + 1
+
+        mayor = nums[0];
+        menor = nums[0];
+        for(int j = 0; j < nums.length; j++){ //  m + 1
           if(mayor <= nums[j]){ 
             mayor = nums[j];
           }
@@ -33,7 +33,7 @@ public class CodingBat {
             menor = nums[j];
           }
         }
-      }
+      
       return mayor-menor;
     }
     public int sum13(int[] nums) {
