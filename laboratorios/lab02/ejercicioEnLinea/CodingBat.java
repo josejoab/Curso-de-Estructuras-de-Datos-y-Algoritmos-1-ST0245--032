@@ -133,29 +133,27 @@ public class CodingBat {
 
         return arreglo;
     }
-    public int[] fix34(int[] nums) {
-        int i = 0;
-
-        while(i < nums.length && nums[i] != 3)
-            i++;
-
-        int j = i + 1;
-
-        while(j < nums.length && nums[j] != 4)
-            j++;
-
-        while(i < nums.length) {
-            if(nums[i] == 3) {
-                int auxiliar = nums[i+1];
-                nums[i+1] = nums[j];
-                nums[j] = auxiliar;
-
-                while(j < nums.length && nums[j] != 4)
-                    j++;
-            }
-            i++;
+   public int[] fix34(int[] nums) {
+  int c= nums.length;
+  
+  for(int i=0;i<c;i++){
+    
+    if(nums[i]==3){
+      
+      for(int j=0;j<c;j++){
+        
+        if(nums[j]==4&&nums[j-1]!=3){
+          
+          int t=nums[j];
+          nums[j]=nums[i+1];
+          nums[i+1]=t;
+          break;
         }
-
-        return nums;
+      }
+      i++;
     }
+  }
+  return nums;
+}
+
 }
