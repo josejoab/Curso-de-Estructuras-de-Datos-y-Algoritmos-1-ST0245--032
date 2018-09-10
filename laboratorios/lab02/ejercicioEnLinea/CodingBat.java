@@ -12,8 +12,8 @@ package Laboratorio2;
 public class CodingBat {
     public int countEvens(int[] nums) {
         int contador = 0;
-        for(int i = 0; i < nums.length; i++){
-          if(nums[i] % 2 == 0){
+        for(int i = 0; i < nums.length; i++){ // n + 1
+          if(nums[i] % 2 == 0){ // n
             contador++;
           }
         }
@@ -22,11 +22,11 @@ public class CodingBat {
     public int bigDiff(int[] nums) {
       int mayor = 0;
       int menor = 0;
-      for(int i = 0; i < nums.length; i++){
+      for(int i = 0; i < nums.length; i++){ // n + 1
         mayor = nums[i];
         menor = nums[i];
-        for(int j = 0; j < nums.length; j++){
-          if(mayor <= nums[j]){
+        for(int j = 0; j < nums.length; j++){ // n * m + 1
+          if(mayor <= nums[j]){ 
             mayor = nums[j];
           }
           if(menor >= nums[j]){
@@ -38,7 +38,7 @@ public class CodingBat {
     }
     public int sum13(int[] nums) {
     int contador = 0;
-    for(int i = 0; i < nums.length; i++){
+    for(int i = 0; i < nums.length; i++){ // n + 1
       if(nums[i] != 13 ){
         contador += nums[i];
       }
@@ -49,15 +49,15 @@ public class CodingBat {
     return contador;
   }
     public boolean has22(int[] nums) {
-      for(int i = 0; i < nums.length-1; i++){
-        if(nums[i] == 2 && nums[i+1] == 2){
+      for(int i = 0; i < nums.length-1; i++){ // n + 1
+        if(nums[i] == 2 && nums[i+1] == 2){ 
           return true;
         }
       }
       return false;
     }
     public boolean lucky13(int[] nums) {
-      for(int i = 0; i < nums.length; i++){
+      for(int i = 0; i < nums.length; i++){ // n + 1
         if(nums[i] == 1 || nums[i] == 3){
           return false;
         }
@@ -68,10 +68,10 @@ public class CodingBat {
         int prm = 0;
         int seg = 0;
 
-        for(int i = 0; i < nums.length; i++)
+        for(int i = 0; i < nums.length; i++) // n 
             seg += nums[i];
 
-        for(int i = 0; i <= nums.length - 2; i++) {
+        for(int i = 0; i <= nums.length - 2; i++) { // n - 2
             prm += nums[i];
             seg -= nums[i];
             
@@ -84,11 +84,11 @@ public class CodingBat {
         int count = 0;
         int i = 0;
 
-        while(i < nums.length) {
+        while(i < nums.length) { // n
             int val = nums[i];
             i++;
             int length = 1;
-            while(i < nums.length && nums[i] == val) {
+            while(i < nums.length && nums[i] == val) { //n * m
                 i++;
                 length++;
             }
@@ -103,10 +103,10 @@ public class CodingBat {
         int i = 0;
         int j = 0;
 
-        while(j < nums.length && nums[j] != 5)
+        while(j < nums.length && nums[j] != 5) // n
             j++;
 
-        while(i < nums.length) {
+        while(i < nums.length) { // m
             if(nums[i] == 4) {
                 int auxiliar = nums[i+1];
                 nums[i+1] = nums[j];
@@ -120,12 +120,12 @@ public class CodingBat {
 
         return nums;
     }
-    public int[] seriesUp(int n) {
+    public int[] seriesUp(int n) { 
         int[] arreglo = new int[n*(n+1)/2];
         int auxiliar = 0;
         
-        for(int i = 1; i <= n; i++) {
-            for(int j = 0; j < i; j++) {
+        for(int i = 1; i <= n; i++) { // n + 1
+            for(int j = 0; j < i; j++) { //m * n
                 arreglo[auxiliar + j] = j + 1;
             }
             auxiliar += i;
