@@ -103,6 +103,33 @@ public class Laboratorio3{
             System.out.println("Pivote correcto: " + pivote+" posicion: "+iterador);
         }
     }
+    /**
+    este metodo recibe dos arrayList o dos LinkedList de neveras y solicitudes
+    el de nevera se implementara como una pila y las solicitudes como una cola
+    el metodo imprime segun el orden de solicitudes cuales neveras le corresponden a cada tienda segun su numero de pedidos
+    */
+    public static void ejercicio1_3(List<Pair<Integer,String>> neveras,List<Pair<String,Integer>>solicitudes){
+        int tope=0;
+         
+        for(int i=solicitudes.size()-1;i>=0;i--){
+            
+            int n=solicitudes.get(i).getValue();
+            if(tope<neveras.size()){
+                System.out.println("tienda : "+solicitudes.get(i).getKey());
+            for (int j = tope; j < n+tope; j++) {
+                
+                System.out.println(neveras.get(j).getKey()+" "+neveras.get(j).getValue());
+            }
+            
+            tope+=n;
+            }
+            else{
+                System.out.println("la tienda: "+solicitudes.get(i).getKey()+"se quedo sin neveras xd");
+            }
+        }
+    
+    }
+    
     public static void main(String[] args) {
         LinkedList linkedList = new LinkedList();
         linkedList.addAll(Arrays.asList(new Integer[]{1, 3, 5, 7}));
@@ -116,4 +143,6 @@ public class Laboratorio3{
         mejorPivote(arrayList);
 
     }
+    
+    
 }
