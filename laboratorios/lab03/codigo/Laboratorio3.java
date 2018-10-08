@@ -129,6 +129,56 @@ public class Laboratorio3{
         }
     
     }
+    public  static void tecladoloco(String texto) {
+        LinkedList nueva = new LinkedList();
+        char[] texto1 = texto.toCharArray();
+        boolean inicio = false;
+        boolean finals = false;
+        String temp = "";
+        String temp2 = "";
+        for(int i = 0; i < texto1.length; i++){
+            if(inicio == true && i == texto1.length-1
+            || inicio == true && texto1[i] == ']'  
+            || inicio == true && texto1[i] == '['){
+                nueva.add(temp2);
+                nueva.addFirst(temp);
+                temp = "";
+                temp2 = "";
+                inicio = false;
+            }
+
+            else if(finals == true  && i == texto1.length-1
+            || finals == true && texto1[i] == '['
+            ||inicio == true && texto1[i] == ']'){
+                nueva.add(temp2);
+                nueva.addLast(temp);
+                temp2 = "";
+                temp = "";
+                finals = false;
+            }
+
+            if(texto1[i] == '['){
+                inicio = true;
+                temp2 = temp;
+                temp = "";
+            } 
+
+            if(texto1[i] == ']'){
+                finals = true;
+                temp2 = temp;
+                temp = "";
+            } 
+            
+            if (texto1[i]!='[' && texto1[i]!=']'){
+                temp += texto1[i];
+            }
+        }
+
+        for(int i = 0; i < nueva.size(); i++){
+            System.out.print(nueva.get(i));
+        }
+    }
+}
     
     public static void main(String[] args) {
         LinkedList linkedList = new LinkedList();
