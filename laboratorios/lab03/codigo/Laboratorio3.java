@@ -104,7 +104,7 @@ public class Laboratorio3{
         }
     }
     /**
-    este metodo recibe dos arrayList o dos LinkedList de neveras y solicitudes
+    Este metodo recibe dos arrayList o dos LinkedList de neveras y solicitudes
     el de nevera se implementara como una pila y las solicitudes como una cola
     el metodo imprime segun el orden de solicitudes cuales neveras le corresponden a cada tienda segun su numero de pedidos
     */
