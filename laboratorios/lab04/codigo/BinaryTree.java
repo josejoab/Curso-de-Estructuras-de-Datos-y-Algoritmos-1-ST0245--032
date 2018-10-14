@@ -11,8 +11,7 @@ package Laboratorio4;
  */
 public class BinaryTree {
     Nodo raiz;  
-    BinaryTree() 
-    { 
+    public BinaryTree(){
         raiz = null; 
     } 
   
@@ -20,19 +19,19 @@ public class BinaryTree {
         return raiz;
     }
 
-    void insertar(int numero){
-        raiz = insertRec(raiz, numero);
+    public void insertar(int numero){
+        raiz = insertarAux(raiz, numero);
     }
 
-    public Nodo insertRec(Nodo raiz, int numero) {
+    public Nodo insertarAux(Nodo raiz, int numero) {
         if (raiz == null){
             raiz = new Nodo(numero);
             return raiz;
         }
         if (numero < raiz.numero){
-            raiz.izquierda = insertRec(raiz.izquierda, numero);
+            raiz.izquierda = insertarAux(raiz.izquierda, numero);
         } else if (numero > raiz.numero) {
-            raiz.derecha = insertRec(raiz.derecha, numero);
+            raiz.derecha = insertarAux(raiz.derecha, numero);
         }
         return raiz;
     }
