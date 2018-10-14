@@ -10,17 +10,41 @@ package Laboratorio4;
  * @author manuelgutierrez
  */
 public class BinaryTree {
-    Nodo raiz;
-   BinaryTree(String familia) 
-    { 
-        raiz = new Nodo(familia); 
-    } 
-  
+    Nodo raiz;  
     BinaryTree() 
     { 
         raiz = null; 
     } 
   
+    public Nodo getNode(){
+        return raiz;
+    }
+
+    void insertar(int numero){
+        raiz = insertRec(raiz, numero);
+    }
+
+    public Nodo insertRec(Nodo raiz, int numero) {
+        if (raiz == null){
+            raiz = new Nodo(numero);
+            return raiz;
+        }
+        if (numero < raiz.numero){
+            raiz.izquierda = insertRec(raiz.izquierda, numero);
+        } else if (numero > raiz.numero) {
+            raiz.derecha = insertRec(raiz.derecha, numero);
+        }
+        return raiz;
+    }
+
+    public void imprimirPosOrden(Nodo raiz) {
+        if(raiz != null){
+            imprimirPosOrden(raiz.izquierda);
+            imprimirPosOrden(raiz.derecha);
+            System.out.println(raiz.numero);
+        }
+    }
+
     public static void main(String[] args) {
         BinaryTree familiaManuel = new BinaryTree(); 
         familiaManuel.raiz = new Nodo("Manuel");
@@ -55,5 +79,17 @@ public class BinaryTree {
          *    /   \   /   \
          * Victoria TerezaBonifacio
          */ 
+        
+        BinaryTree arbol = new BinaryTree();
+        arbol.insertar(50);
+        arbol.insertar(30);
+        arbol.insertar(24);
+        arbol.insertar(5);
+        arbol.insertar(28);
+        arbol.insertar(45);
+        arbol.insertar(98);
+        arbol.insertar(52);
+        arbol.insertar(60);
+        arbol.imprimirPosOrden(arbol.getNode());
     }
 }
