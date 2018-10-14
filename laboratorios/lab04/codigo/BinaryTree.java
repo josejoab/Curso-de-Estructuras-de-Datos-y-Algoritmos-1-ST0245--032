@@ -43,7 +43,23 @@ public class BinaryTree {
             System.out.println(raiz.numero);
         }
     }
-
+    
+    public static void calcularAbuela(Nodo nodo){
+        String abuela1="",abuela2="";
+        if(nodo!=null){
+           if(nodo.izquierda.izquierda!=null){
+               abuela1=nodo.izquierda.izquierda.persona;
+            }
+            else System.out.println("no se conoce la abuela materna");
+            
+            if(nodo.derecha.izquierda!=null){
+                abuela2=nodo.derecha.izquierda.persona;
+            }
+            else System.out.println("no se conoce la abuela paterna");
+        }
+        System.out.println("la abuela materna es "+abuela1+" la abuela paterna es "+abuela2);
+    }
+    
     public static void main(String[] args) {
         BinaryTree familiaManuel = new BinaryTree(); 
         familiaManuel.raiz = new Nodo("Manuel");
