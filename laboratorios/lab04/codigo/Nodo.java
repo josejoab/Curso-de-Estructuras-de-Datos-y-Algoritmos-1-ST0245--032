@@ -12,10 +12,10 @@ package Laboratorio4;
 public class Nodo {
     Nodo izquierda;
     Nodo derecha;
-    String data;
+    String persona;
     int numero;
-    public Nodo(String data) {
-        this.data = data;
+    public Nodo(String persona) {
+        this.persona = persona;
 
     }
     public Nodo(int numero){
