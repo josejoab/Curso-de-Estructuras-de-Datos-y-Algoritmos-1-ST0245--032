@@ -13,10 +13,12 @@ public class Nodo {
     Nodo izquierda;
     Nodo derecha;
     String data;
-
+    int numero;
     public Nodo(String data) {
         this.data = data;
 
     }
-    
+    public Nodo(int numero){
+         this.numero = numero;
+    }
 }
