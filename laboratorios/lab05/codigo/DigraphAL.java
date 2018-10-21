@@ -16,21 +16,20 @@ public class DigraphAL extends Graph{
    LinkedList<Integer> adjListArray[];
    public DigraphAL(int size){
        super(size);
-       adjListArray = new LinkedList[size]; 
-       for(int i = 0; i < size ; i++){ 
-                adjListArray[i] = new LinkedList<>(); 
+       this.adjListArray = new LinkedList[size]; 
+       for(int i = 0; i < size; i++){ 
+          adjListArray[i] = new LinkedList<>(); 
        }
    }
 
    @Override
    public void addArc(int source, int destination, int weight){
-     adjListArray[source].add(destination);
-     adjListArray[source].set(destination, weight);
+     adjListArray[source].add(destination,weight);
    }
    
    @Override
    public int getWeight(int source, int destination){
-    return adjListArray[source].get(destination);
+    return adjListArray[source].element();
    }
    public ArrayList<Integer> getSuccessors(int vertex)
    {
@@ -43,3 +42,4 @@ public class DigraphAL extends Graph{
         return succesors;
    }
 }
+
