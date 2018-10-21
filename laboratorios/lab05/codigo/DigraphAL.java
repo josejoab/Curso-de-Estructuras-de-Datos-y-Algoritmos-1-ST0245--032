@@ -29,7 +29,7 @@ public class DigraphAL extends Graph{
    
    @Override
    public int getWeight(int source, int destination){
-    return adjListArray[source].element();
+    return adjListArray[source].get(destination);
    }
    public ArrayList<Integer> getSuccessors(int vertex)
    {
