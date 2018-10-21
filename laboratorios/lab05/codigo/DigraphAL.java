@@ -25,7 +25,7 @@ public class DigraphAL extends Graph{
    @Override
    public void addArc(int source, int destination, int weight){
      adjListArray[source].add(destination);
-     adjListArray[destination].add(weight);
+     adjListArray[source].set(size, weight);
    }
    
    @Override
