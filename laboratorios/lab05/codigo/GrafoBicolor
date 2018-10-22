@@ -1,0 +1,69 @@
+public class GrafoBicolor {
+ 
+    //atributos
+ int[][] relaciones;
+
+    //metodos
+ public GrafoBicolor(int numNodos){
+  relaciones = new int[numNodos][numNodos];
+  for(int i = 0; i < relaciones.length; i++){
+     relaciones[i][i] = 1;
+  }
+ }   
+
+ /**
+  * metodo que establece una relacion entre dos nodos
+  * @param nodo1 
+  * @param nodo2 
+  */
+ public void establecerRelacion(int nodo1, int nodo2){
+ if(iguales(nodo1, nodo2)) cambiar(nodo1, nodo2);
+ relaciones[nodo1][nodo2] = relaciones[nodo2][nodo2];
+ relaciones[nodo2] [nodo1] = relaciones[nodo1][nodo1];
+ }
+ 
+ /**
+  * metodo que indica si dos nodos tienen el mismo color
+  * @param nodo1
+  * @param nodo2
+  * @return 
+  */
+ public boolean iguales(int nodo1, int nodo2){
+  return relaciones[nodo1][nodo1] == relaciones[nodo2][nodo2];
+ }
+ 
+ /**
+  * metodo que cambia el color de un nodo para que sea diferente al nodo con el 
+  * que se va realizar la relacion
+  * @param nodo1
+  * @param nodo2 
+  */
+ public void cambiar(int nodo1, int nodo2){
+ if(relaciones[nodo1][nodo1] == 1) relaciones[nodo2][nodo2] = 2;
+ else relaciones[nodo2][nodo2] = 2;
+ }
+ 
+ /**
+  * metodo para confirmar que la relacion sea bicoloreable
+  * @return 
+  */
+ public boolean bicoloreableAux(){
+  for(int i = 0; i < relaciones.length; i++){
+     for(int j = 0; j < relaciones.length; j++){
+         if(j!=i){
+           if(relaciones[i][j] == relaciones[i][i]) return false;
+          }
+        }
+    }
+  return true;
+ }
+ 
+  /**
+   * metodo que indica si es bicolorable o no; 
+   * @return 
+   */  
+ public String esBicolorable(){
+     if(bicoloreableAux()) return "ES BICOLOREABLE";
+     else return "NO ES BICOLOREABLE";
+ }  
+}
