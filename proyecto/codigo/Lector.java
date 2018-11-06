@@ -1,10 +1,8 @@
-package Proyecto2;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import javafx.geometry.Point3D;
+
 
 /**
  *
@@ -14,9 +12,7 @@ import javafx.geometry.Point3D;
  */
  
 public class Lector {
-    //atributos
- 
-    //metodos
+
     
    /**
     * Metodo para leer un archivo de abejas y almacenarlas en un arreglo Abejas
@@ -25,7 +21,7 @@ public class Lector {
     * @return un arreglo de Abejas donde cada elemento es una abeja con sus respectivas coordenadas
     */
     public ArrayList<Abeja>leerArchivo(int numeroDeAbejas){
-          numeroDeAbejas = 10;
+          numeroDeAbejas = 100000;
           Convertor convertor = new Convertor();
           final String nombreDelArchivo = "ConjuntoDeDatosCon"+numeroDeAbejas+"abejas.txt";
           ArrayList <Abeja> arregloDeAbejas = new ArrayList();
@@ -72,7 +68,12 @@ public class Lector {
         }
         return mayor-menor;
     }
-    
+    /**
+     * Metodo para encontrar la abeja con mayor Z && menor Z
+     * @param arregloDeAbejas
+     * @return
+     * @throws InterruptedException 
+     */
      public int detectarZ(ArrayList<Abeja> arregloDeAbejas) throws InterruptedException{
         int mayor = arregloDeAbejas.get(0).getZ();
         int mayorAux;
